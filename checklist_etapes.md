@@ -5,38 +5,38 @@ Coche chaque case lorsque l’étape est terminée.
 ## 0 – Pré-requis & environnement
 [x] Installer Git et configurer le nom d’utilisateur / email.
 [x] Vérifier que Python (>=3.8) et `pip` sont installés.
-[ ] Créer/activer un environnement virtuel (venv, conda…).
+[x] Créer/activer un environnement virtuel (venv, conda…).
 
 ## 1 – Création et initialisation du dépôt
 [x] Créer un nouveau **dépôt public** sur GitHub.
-[ ] Cloner le dépôt en local : `git clone …`.
-[ ] Créer un fichier `README.md` décrivant brièvement le projet (modèle IA factice).
-[ ] Ajouter un `.gitignore` adapté à un projet Python (`__pycache__/`, `*.joblib`, envs, etc.).
-[ ] Écrire `model.py` avec :
+[x] Cloner le dépôt en local : `git clone …`.
+[x] Créer un fichier `README.md` décrivant brièvement le projet (modèle IA factice).
+[x] Ajouter un `.gitignore` adapté à un projet Python (`__pycache__/`, `*.joblib`, envs, etc.).
+[x] Écrire `model.py` avec :
     * `train_and_save_model()` qui crée & sauvegarde un modèle factice.
     * `predict()` qui charge le modèle et simule une prédiction.
-[ ] Commiter ces fichiers sur la branche **main** (`git add . && git commit -m "Initial commit" && git push`).
+[x] Commiter ces fichiers sur la branche **main** (`git add . && git commit -m "Initial commit" && git push`).
 
 ## 2 – Stratégie de branches Git
-[ ] Créer la branche **develop** à partir de `main` : `git checkout -b develop`.
-[ ] Créer la branche **feature/initial-model-setup** à partir de `develop`.
-[ ] Développer et commiter sur `feature/initial-model-setup` (amélioration du modèle/test).
-[ ] Fusionner la branche de fonctionnalité dans **develop** (pull request ou `git merge`).
-[ ] Tester & valider, puis fusionner **develop** dans **main** (pull request).
+[x] Créer la branche **develop** à partir de `main` : `git checkout -b develop`.
+[x] Créer la branche **feature/initial-model-setup** à partir de `develop`.
+[x] Développer et commiter sur `feature/initial-model-setup` (amélioration du modèle/test).
+[x] Fusionner la branche de fonctionnalité dans **develop** (pull request ou `git merge`).
+[x] Tester & valider, puis fusionner **develop** dans **main** (pull request).
 
 ## 3 – Gestion des fichiers de modèle volumineux (si nécessaire)
-[ ] Installer **Git LFS** : `git lfs install`.
-[ ] Suivre les fichiers de modèle : `git lfs track "*.joblib"` (ou autre extension).
-[ ] Commiter les changements de suivi LFS.
+[x] Installer **Git LFS** : `git lfs install`.
+[x] Suivre les fichiers de modèle : `git lfs track "*.joblib"` (ou autre extension).
+[x] Commiter les changements de suivi LFS.
 
 ## 4 – Préparation du compte Hugging Face
-[ ] Créer un compte sur Hugging Face ou se connecter.
-[ ] Générer un **Access Token** HF avec scope *write*.
-[ ] Créer un repository (Espace) Hugging Face pour le modèle.
+[x] Créer un compte sur Hugging Face ou se connecter.
+[x] Générer un **Access Token** HF avec scope *write*.
+[x] Créer un repository (Espace) Hugging Face pour le modèle.
 
 ## 5 – Configuration de GitHub Actions
-[ ] Ajouter les secrets `HF_TOKEN` (token Hugging Face) et `EMAIL_PASSWORD` / autres secrets SMTP dans **Settings > Secrets and variables > Actions** du repo GitHub.
-[ ] Créer le fichier workflow `.github/workflows/deploy.yml` contenant :
+[x] Ajouter les secrets `HF_TOKEN` (token Hugging Face) et `EMAIL_PASSWORD` / autres secrets SMTP dans **Settings > Secrets and variables > Actions** du repo GitHub.
+[x] Créer le fichier workflow `.github/workflows/deploy.yml` contenant :
     * Étape *checkout* du code.
     * Installation de Python, dépendances et Git LFS.
     * Exécution du script `model.py` pour entraîner et sauvegarder le modèle.

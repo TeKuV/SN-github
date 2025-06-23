@@ -3,7 +3,7 @@ name: Deploy Model to Hugging Face and Notify
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
