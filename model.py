@@ -1,34 +1,42 @@
 import joblib
 import os
 
-# Définir le chemin du modèle
-MODEL_PATH = 'fake_model.joblib'
+# Le chemin où le modèle sera sauvegardé.
+CHEMIN_MODELE = 'fake_model.joblib'
 
-def train_and_save_model():
-    """Crée un modèle factice et le sauvegarde sur le disque."""
-    print("Entraînement du modèle factice...")
-    # Création d'un modèle simple (un dictionnaire dans ce cas)
-    model = {'feature': 'valeur', 'accuracy': 0.95}
+def entrainer_et_sauvegarder_modele():
+    """Simule l'entraînement d'un modèle simple et le sauvegarde sur le disque."""
+    print("Lancement de l'entraînement du modèle...")
     
-    print(f"Sauvegarde du modèle à l'emplacement : {MODEL_PATH}")
-    joblib.dump(model, MODEL_PATH)
-    print("Modèle sauvegardé.")
+    # Dans un vrai projet, ici se trouverait la logique d'entraînement.
+    # Pour la démonstration, nous créons un simple dictionnaire.
+    modele_factice = {'parametre': 'valeur_arbitraire', 'precision': 0.95}
+    
+    print(f"Sauvegarde du modèle dans '{CHEMIN_MODELE}'...")
+    joblib.dump(modele_factice, CHEMIN_MODELE)
+    print("Sauvegarde terminée.")
 
-def predict():
-    """Charge le modèle factice et simule une prédiction."""
-    if not os.path.exists(MODEL_PATH):
-        print("Le modèle n'existe pas. Veuillez l'entraîner d'abord.")
+def effectuer_prediction():
+    """Charge le modèle depuis le disque et simule une prédiction."""
+    if not os.path.exists(CHEMIN_MODELE):
+        print(f"Le fichier du modèle '{CHEMIN_MODELE}' est introuvable. Lancez d'abord l'entraînement.")
         return
 
-    print("Chargement du modèle...")
-    model = joblib.load(MODEL_PATH)
+    print(f"Chargement du modèle depuis '{CHEMIN_MODELE}'...")
+    modele = joblib.load(CHEMIN_MODELE)
     print("Modèle chargé.")
     
-    # Simulation d'une prédiction
-    prediction = model.get('accuracy', 0) # Prédit la "précision"
-    print(f"Prédiction simulée : {prediction}")
+    # Utilisation du modèle pour obtenir une prédiction.
+    prediction = modele.get('precision', 0)
+    print(f"Résultat de la prédiction : {prediction}")
     return prediction
 
+def main():
+    """Fonction principale pour exécuter les étapes du script."""
+    entrainer_et_sauvegarder_modele()
+    print("-" * 30)
+    effectuer_prediction()
+
+# Ce bloc s'exécute seulement si le script est lancé directement.
 if __name__ == '__main__':
-    train_and_save_model()
-    predict()
+    main()
