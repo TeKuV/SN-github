@@ -1,0 +1,34 @@
+Contexte Général du Sujet
+
+Vous êtes chargé(e) de mettre en place un flux de travail de base pour un mini-projet
+d'Intelligence Artificielle. Ce projet consiste en un modèle simple (que vous allez simuler) qui
+doit être versionné, puis déployé automatiquement sur Hugging Face Hub. Une notification par
+email doit également être envoyée après chaque déploiement réussi.
+
+Consignes de Soumission
+
+Le travail est individuel.
+Vous devez soumettre un unique fichier ZIP nommé comme suit : nom_etudiant_matricule_GIT-GITHUB.zip.
+Le fichier ZIP doit contenir :
+Un rapport PDF (rapport_nom_matricule.pdf) contenant :
+Des captures d'écran claires de votre dépôt GitHub (branches, commits),
+Des explications concises pour chaque question,
+Le contenu de votre fichier de workflow GitHub Actions (.yml).
+Une vidéo de démonstration (demo_nom_matricule.mp4 ou lien) de 5 minutes maximum, présentant oralement les différents éléments.
+Question 1 : Mise en Place du Dépôt (6 points)
+
+a. Initialisation du Projet (2 points) : Créez un nouveau dépôt public sur GitHub. Clonez-
+le localement. Initialisez-le avec :
+* Un fichier README.md décrivant brièvement le projet (modèle IA factice).
+* Un fichier .gitignore adapté pour un projet Python (ignorant __pycache__,
+*.joblib, environnements virtuels, etc.).
+* Un script python model.py contenant une fonction train_and_save_model() qui
+crée et sauvegarde un modèle factice (ex: avec joblib et un modèle sklearn
+simple ou même un fichier texte simulant un modèle) et une fonction predict()
+qui le charge et simule une prédiction. Commitez ces fichiers initiaux sur la branche
+principale.
+
+b. Stratégie de Branches (2 points) : Définissez et mettez en œuvre une stratégie de branches
+simple pour ce projet. Par exemple :
+* main : pour les versions stables/déployées.
+* develop : pour l'intégration des fonctionnalités.
