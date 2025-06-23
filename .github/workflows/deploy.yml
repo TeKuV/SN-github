@@ -25,12 +25,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Sync to Hugging Face hub
-        uses: huggingface/action-co-site-sync@v1
-        with:
+        env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          TARGET_REPO: ${{ secrets.HF_USERNAME }}/${{ github.event.repository.name }}
-          GIT_EMAIL: ${{ github.actor }}@users.noreply.github.com
-          GIT_USERNAME: ${{ github.actor }}
+          HF_USERNAME: ${{ secrets.HF_USERNAME }}
+        run: git push https://$HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/$HF_USERNAME/${{ github.event.repository.name }} main
 
       - name: Send email notification
         uses: dawidd6/action-send-mail@v3
