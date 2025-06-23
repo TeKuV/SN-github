@@ -17,25 +17,20 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
-
+          python-version: "3.11.5"
+      
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run training script
-        run: python model.py
-
-      - name: Push to Hugging Face Hub
-        uses: huggingface/hub-action@main
+      - name: Sync to Hugging Face hub
+        uses: huggingface/action-co-site-sync@v1
         with:
-          commit_message: "Automated model deployment"
-          local_dir: "."
-          local_dir_use_symlinks: false
-          repo_id: "${{ secrets.HF_USERNAME }}/${{ github.event.repository.name }}"
-          repo_type: "model"
-          token: "${{ secrets.HF_TOKEN }}"
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          TARGET_REPO: ${{ secrets.HF_USERNAME }}/${{ github.event.repository.name }}
+          GIT_EMAIL: ${{ github.actor }}@users.noreply.github.com
+          GIT_USERNAME: ${{ github.actor }}
 
       - name: Send email notification
         uses: dawidd6/action-send-mail@v3
