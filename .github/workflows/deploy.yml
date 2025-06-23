@@ -39,17 +39,17 @@ jobs:
           git commit -m "Deploy latest version"
           git push --force https://${{ secrets.HF_USERNAME }}:$HF_TOKEN@huggingface.co/spaces/${{ secrets.HF_USERNAME }}/${{ github.event.repository.name }} new-main:main
 
-      - name: Send email notification
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: ${{ secrets.SMTP_SERVER }}
-          server_port: ${{ secrets.SMTP_PORT }}
-          username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
-          subject: 'Déploiement réussi sur Hugging Face: ${{ github.repository }}'
-          to: ${{ secrets.EMAIL_RECIPIENT }}
-          from: GitHub Actions <actions@github.com>
-          body: |
-            Le modèle a été déployé avec succès sur le Hub Hugging Face.
-            Commit: ${{ github.sha }}
-            Repo: https://huggingface.co/${{ secrets.HF_USERNAME }}/${{ github.event.repository.name }}
+      # - name: Send email notification
+      #   uses: dawidd6/action-send-mail@v3
+      #   with:
+      #     server_address: ${{ secrets.SMTP_SERVER }}
+      #     server_port: ${{ secrets.SMTP_PORT }}
+      #     username: ${{ secrets.SMTP_USERNAME }}
+      #     password: ${{ secrets.SMTP_PASSWORD }}
+      #     subject: 'Déploiement réussi sur Hugging Face: ${{ github.repository }}'
+      #     to: ${{ secrets.EMAIL_RECIPIENT }}
+      #     from: GitHub Actions <actions@github.com>
+      #     body: |
+      #       Le modèle a été déployé avec succès sur le Hub Hugging Face.
+      #       Commit: ${{ github.sha }}
+      #       Repo: https://huggingface.co/${{ secrets.HF_USERNAME }}/${{ github.event.repository.name }}
